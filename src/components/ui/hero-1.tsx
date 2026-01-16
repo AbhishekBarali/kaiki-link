@@ -161,7 +161,18 @@ export function HeroLanding(props: HeroLandingProps) {
                 />
             </div>
 
-            <header className="absolute inset-x-0 top-0 z-1">
+            {/* Top Announcement Bar */}
+            {announcementBanner && (
+                <div className="fixed top-0 inset-x-0 z-50 bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-2 px-4 text-center text-sm">
+                    <span className="font-medium">{announcementBanner.text}</span>
+                    {' '}
+                    <a href={announcementBanner.linkHref} className="underline font-semibold hover:text-white/80 transition-colors">
+                        {announcementBanner.linkText} →
+                    </a>
+                </div>
+            )}
+
+            <header className={`absolute inset-x-0 z-10 ${announcementBanner ? 'top-10' : 'top-0'}`}>
                 <nav aria-label="Global" className="flex items-center justify-between p-4 sm:p-6 lg:px-8">
                     <div className="flex lg:flex-1">
                         <a href="#" className="-m-1.5 p-1.5">
@@ -253,18 +264,6 @@ export function HeroLanding(props: HeroLandingProps) {
 
             <div className="relative isolate px-6 pt-4 overflow-hidden min-h-screen flex flex-col justify-center">
                 <div className="mx-auto max-w-4xl pt-20 sm:pt-25">
-                    {/* Announcement banner */}
-                    {announcementBanner && (
-                        <div className="hidden sm:mb-2 sm:flex sm:justify-center">
-                            <div className="relative rounded-full px-2 py-1 text-xs sm:px-3 sm:text-sm/6 text-muted-foreground ring-1 ring-border hover:ring-ring transition-all">
-                                {announcementBanner.text}{' '}
-                                <a href={announcementBanner.linkHref} className="font-semibold text-primary hover:text-primary/80 transition-colors">
-                                    <span aria-hidden="true" className="absolute inset-0" />
-                                    {announcementBanner.linkText} <span aria-hidden="true">&rarr;</span>
-                                </a>
-                            </div>
-                        </div>
-                    )}
 
                     <div className="text-center">
                         <h1 className={`${getTitleSizeClasses()} font-semibold tracking-tight text-balance text-foreground`}>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { HeroLanding } from "@/components/ui/hero-1";
 import type { HeroLandingProps } from "@/components/ui/hero-1";
+import Testimonials from "@/components/sections/testimonials";
 
 export default function Home() {
     // KAIKI Link customized hero props
@@ -101,6 +102,9 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+
+            {/* Testimonials Section */}
+            <Testimonials />
 
             {/* CTA Section */}
             <section className="py-20 px-6 bg-[var(--background)]">
